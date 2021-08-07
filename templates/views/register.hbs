@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Registration Form</title>
+</head>
+
+<body>
+    {{>navbar}}
+
+    <form action="/register" method="post" onsubmit="return formValidation()">
+        <div id="user_details">
+            <div class="form_input">
+                <span class="input_name">First Name</span><sup>*</sup><br>
+                <input type="text" name="firstname" value="" required placeholder="Enter Your First Name">
+            </div>
+            <div class="form_input">
+                <span class="input_name">Last Name</span><sup>*</sup><br>
+                <input type="text" name="lastname" value="" required placeholder="Enter Your Last Name">
+            </div>
+            <div class="form_input">
+                <span class="input_name">Username</span><sup>*</sup><br>
+                <input type="text" name="username" value="" required id="username" placeholder="Enter an User Name"><br>
+                <span id="userError"></span>
+
+            </div>
+            <div class="form_input">
+                <span class="input_name">Phone Number</span><sup>*</sup><br>
+                <input type="text" name="phone" value="" minlength="10" maxlength="10" required
+                    placeholder="Enter Your Number">
+            </div>
+            <div class="form_input">
+                <span class="input_name">Email</span><sup>*</sup><br>
+                <input type="email" name="email" value="" required placeholder="Enter Your Email">
+            </div>
+
+            <div class="form_input">
+                <span class="input_name">Age</span><sup>*</sup><br>
+                <input type="number" name="age" value="" min = "1" required placeholder="Enter Your Age">
+            </div>
+            
+            <div class="form_input">
+                <span class="input_name">Password</span><sup>*</sup><br>
+                <input type="password" name="password" value="" required id="password" placeholder="Enter Password"><br>
+                <span id="passError"></span>
+            </div>
+            <div class="form_input">
+                <span class="input_name">Confirm Password</span><sup>*</sup><br>
+                <input type="password" name="confirmpassword" value="" required id="confirmpassword"
+                    placeholder="Confirm your Password">
+            </div>
+            <input type="submit" value="Register" id="register_button">
+            <h2 id="register-page-error">{{errormessage}}</h2>
+        </div>
+
+    </form>
+
+
+    <script>
+        let nav = document.getElementById("navbar");
+        let btns = nav.getElementsByClassName("btn");
+        console.log(btns);
+
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("actively");
+                current[0].className = current[0].className.replace(" actively", "");
+                this.className += " actively";
+            });
+        }
+
+        let username = document.getElementById("username");
+        let password = document.getElementById("password");
+        let confirmpassword = document.getElementById("confirmpassword");
+        let flag = true;
+        function isUpper(str) {
+            let count = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] >= 'A' && str[i] <= 'Z') {
+                    count = count + 1;
+                }
+            }
+            if (count == 0) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function isSpecial(str) {
+            let count = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] == '@' || str[i] == '_' || str[i] == '&') {
+                    count = count + 1;
+                }
+            }
+            if (count == 0) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+        function formValidation() {
+            if (username.value == "") {
+                document.getElementById("userError").innerHTML = "Username is empty";
+                flag = false;
+            }
+            else if (username.value.length < 3) {
+                document.getElementById("userError").innerHTML = "Username require min 3 characters";
+                flag = false;
+            }
+            else {
+                document.getElementById("userError").innerHTML = "";
+                flag = true;
+            }
+
+            if (password.value == "") {
+                document.getElementById("passError").innerHTML = "Password is empty";
+                flag = false;
+            }
+            else if (password.value.length < 8) {
+                document.getElementById("passError").innerHTML = "Password require min 8 characters";
+                flag = false;
+            }
+            else if (isUpper(password.value) == false) {
+                document.getElementById("passError").innerHTML = "Password require min 1 capital letter";
+                flag = false;
+            }
+            else if (isSpecial(password.value) == false) {
+                document.getElementById("passError").innerHTML = "Password require min 1 special character (@,_,&)";
+                flag = false;
+            }
+            else {
+                document.getElementById("passError").innerHTML = "";
+                flag = true;
+            }
+            if (flag == true) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(to right, #273be2, #cc00cc);
+}
+
+#navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+#navbar a{
+    display: inline-block;
+    font-size: 1.3rem;
+    color: black;
+    text-decoration-line: underline;
+    text-underline-offset: 0.4rem; 
+    text-decoration-color: #273be2;
+    text-decoration-thickness: 3.5px;
+    font-family: 'Georama', sans-serif;
+    background-color: white;
+    padding: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+#heading{
+    font-family: 'Georama', sans-serif;
+}
+
+#user_details{
+    font-family: 'Georama', sans-serif;
+    font-weight: bold;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 2rem;
+    width: 35rem; 
+}
+
+.form_input{
+    padding: 1rem;
+}
+
+.input_name{
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.form_input input{
+    height: 1.5rem;
+    margin-top: 0.5rem;
+    outline: none;
+    width: 100%;
+}
+
+input[type = "text"]:focus, input[type = "password"]:focus, input[type = "email"]:focus{
+    box-shadow: 3px 3px 4px black;
+  }
+
+
+::placeholder{
+    font-family: 'Georama', sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 0.4rem;
+    letter-spacing: 1px;
+}
+
+#register_button{
+    background-image: linear-gradient(to right, #273be2, #cc00cc);
+    border: none;
+    outline: none;
+    font-family: 'Georama', sans-serif;
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: bold;
+    width: 80%;
+    margin: 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+sup{
+   
+    margin-left: 0.3rem;
+    color: red;
+}
+
+#userError{
+    font-family: 'Georama', sans-serif;
+    color: red;
+}
+
+#passError{
+    font-family: 'Georama', sans-serif;
+    color: red;
+}
+
+#login_details{
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    width: 20rem;
+    height: 22rem;
+}
+
+.fas{
+    font-size: 4rem;
+    background-color: black;
+    color: white;
+    padding: 1.8rem 2.1rem;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+#login_details input{
+    height: 2rem;
+}
+
+.input_name{
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.login_input input{
+    height: 1.5rem;
+    margin-top: 0.5rem;
+    outline: none;
+    width: 100%;
+}
+
+#signin_button{
+    background-image: linear-gradient(to right, #273be2, #cc00cc);
+    border: none;
+    outline: none;
+    font-family: 'Georama', sans-serif;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    width: 100%;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+#login_account_creation{
+    font-family: 'Georama', sans-serif;
+    font-size: 1.2rem;
+    color: #273be2;
+    margin-top: 1rem;
+    color: white;
+}
+
+.success{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Georama', sans-serif;
+    height: 80vh;
+}
+
+.success h1{
+    font-size: 3rem;
+    letter-spacing: 1px;
+}
+
+.success a{
+    color: white;
+    font-size: 1.5rem;
+}
+
+#login-page-error, #register-page-error{
+    font-size: 1.2rem;
+    font-family: 'Georama', sans-serif;
+    color: red;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width: 641px) {
+    #user_details{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        width: 25rem;
+        padding: 0.5rem;
+    }
+
+    .form_input input{
+        width: 100%;
+    }
+
+    #register_button{
+        width: 93%;
+    }
+}
+
+@media screen and (max-width: 448px) {
+    #user_details{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        width: 18rem;
+        padding: 0.5rem;
+    }
+
+    #login_details{
+        width: 14rem;
+        padding-top: 1rem;
+    }
+
+    #login_details input{
+        width: 90%;
+    }
+
+    #register_button{
+        width: 91%;
+    }
+}
